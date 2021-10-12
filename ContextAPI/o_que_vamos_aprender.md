@@ -1,0 +1,5 @@
+A medida que aplicações em react ficam maiores, torna-se cada vez mais dificil transmitir de forma consistente dados através de uma arvore de componentes, uma vez que há a obrigatoriedade de passa-las de pai para filho, ou de filho para pai, por toda a hierarquia de componentes através de props, mesmo que parte desses componentes não necessariamente precise desses dados. Com isso surge a necessidade de trafegar os diferentes dados de formas mais diretas e objetivas entre componentes distantes.
+
+A principal solução utilizada para contornar esse tipo de problema é a criação de um estado global, onde cada componente pode individualmente acessar e editar os dados lá contidos.
+
+Sabendo disso, nesse bloco você irá aprender como utilizar uma ferramenta para gerenciamento de estado global para suas aplicações nativa do react, o Context API.

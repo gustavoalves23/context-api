@@ -1,0 +1,3 @@
+- Criar um estado global de aplicações em React com o **Context API**.
+- Propagar e consumir o estado global através do **Provider e Consumer** do **Context API**.
+- Editar o estado global do **Context API**.
