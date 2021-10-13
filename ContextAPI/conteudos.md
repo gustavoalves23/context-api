@@ -29,7 +29,7 @@ Como a Context API é uma ferramenta nativa do React, não há a necessidade de 
 Para criarmos o nosso contexto, que irá armazenar nossos dados, basta utilizamos a função `createContext`, que deve ser importada do React :
 
 ```js
-import {createContext} from 'react';
+import { createContext } from 'react';
 
 const defaultValue = '';
 
