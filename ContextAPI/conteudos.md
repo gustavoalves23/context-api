@@ -152,7 +152,7 @@ export default MyProvider;
 
 ```
 
-Perceba que passamos uma prop denominada `value` para nosso componente `myContext.Provider`. É nesse `value` que serão passados todos os dados que desejamos compartilhar, além das funções que alteram esses dados. Esses dados podem ser passados de diversas maneiras, porém a forma mais comum é passá-los dentro de um objeto.
+Perceba que passamos uma prop denominada `value` para nosso componente `myContext.Provider`. É nesse `value` que serão passados todos os dados que desejamos compartilhar, além das funções que alteram esses dados. Esses dados podem ser passados de diversas maneiras, porém a forma mais comum é passá-los dentro de um objeto. A forma ideal para armazenar nossos dados é no próprio estado do Provider. Com isso, podemos facilmente acessar e editar esses valores.
 
 Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que foi obtido no momento em que definimos nosso `Context`, juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
 
