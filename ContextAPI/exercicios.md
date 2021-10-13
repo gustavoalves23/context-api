@@ -31,18 +31,24 @@ Agora que você já entendeu a estrutura da aplicação, vamos aos exercícios:
 
 1 - Crie o contexto de sua aplicação, ele deve conter dados como:
 - Quais as quatro tarefas que a família deve realizar.
-- Qual dia da semana é hoje.
 - Qual a função de cada pessoa.
+- Quem deve ser responsável pela Maggie e pelo Cachorro.
+- Tarefas já finalizadas.
+
+Aqui que você deve declarar as funções que irão dividir, de forma aleatória, as tarefas de cada um, assim como decidir que cuida da Maggie e da ração para o cachorro.
+
+- Ao alterar o dia da semana, os responsáveis por cada tarefa devem ser alterados.
+- Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
 
 2 - Crie a estrutura de componentes:
-- O componente da família deve possuir um `<select>` com os dias da semana. Esse select deve alterar o valor salvo no contexto.
-- O Componente da família deve apresentar a lista de tarefas que ainda não foram cumpridas.
+- O componente da família deve possuir um `<select>` com os dias da semana. Alterar o dia escolhido deve alterar as tarefas e responsabilidades no contexto.
 - Os componentes dos adultos e das crianças devem ser capazes de apresentar quem é responsável por cuidar da Maggie e do cachorro.
 - Os componentes de Homer, Marge, Bart e Lisa devem ser capazes de apresentar suas tarefas, assim como renderizar o componente da Maggie ou do cachorro, caso sejam responsáveis por eles.
-- Os componentes de Homer, Marge, Bart e Lisa dever possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
+- A Maggie e o cachorro devem apresentar quem está responsável por eles.
 
-3 - Crie a lógica para definir de forma aleatória as tarefas:
-- Ao alterar o dia da semana, os responsáveis por cada tarefa devem ser alterados.
+3 - Crie a lógica para permitir que as tarefas sejam marcadas como completas:
+- O Componente da família deve apresentar a lista de tarefas que ainda não foram cumpridas.
+- Os componentes de Homer, Marge, Bart e Lisa dever possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
 - Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
 
 ---
