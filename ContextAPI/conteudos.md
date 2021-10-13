@@ -6,9 +6,9 @@ Agora que você já entendeu a importância e a utilidade da Context API, iremos
 
 Antes de começarmos a aprender como utilizar a Context API, precisamos entender seus objetivos e possíveis casos de uso.
 
-    A Context API foi desenvolvida com o objetivo de reduzir a complexidade no compartilhamento de dados entre componentes de uma aplicação, permitindo que exista um estado global, comumente denominado de contexto, que armazenará dados que necessitem de ser acessados por diversos componentes sem a necessidade de passá los via props entre os diversos níveis.
+    A Context API foi desenvolvida com o objetivo de reduzir a complexidade no compartilhamento de dados entre componentes de uma aplicação, permitindo que exista um estado global, comumente denominado de contexto, que armazenará dados que necessitem de ser acessados por diversos componentes sem a necessidade de passá-los via props entre os diversos níveis.
 
-    A primeira vista você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props, porém, dependendo da complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
+    À primeira vista você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props, porém, dependendo da complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
 
     Então quando implementar um contexto global? Para responder essa pergunta precisamos refletir sobre a estrutura e funcionalidades da aplicação:
 
