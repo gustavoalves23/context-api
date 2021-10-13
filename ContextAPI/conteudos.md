@@ -44,7 +44,7 @@ O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso
 
 O **Consumer** tem a função de pegar **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão) caso ele tenha sido fornecido na declaração do nosso contexto.
 
-Para compreendermos melhor como aplicar esses componentes, vamos criar uma aplicação:
+Para compreendermos melhor como aplicar esses componentes, vamos criar uma aplicação.
 
 Primeiro, iremos criar nossa aplicação React:
 
@@ -152,11 +152,15 @@ export default MyProvider;
 
 ```
 
-Perceba que passamos uma prop denominada `value` para nosso componente `myContext.Provider`. É nesse `value` que serão passados todos os dados que desejamos compartilhar, além das funções que alteram esses dados. Esses dados podem ser passados de diversas maneiras, porém a forma mais comum é passá-los na forma de um objeto.
+Perceba que passamos uma prop denominada `value` para nosso componente `myContext.Provider`. É nesse `value` que serão passados todos os dados que desejamos compartilhar, além das funções que alteram esses dados. Esses dados podem ser passados de diversas maneiras, porém a forma mais comum é passá-los dentro de um objeto.
 
-Essa é a estrutura básica de nosso `Provider`. Ele basicamente retorna o **Provider**, que foi obtido no momento em que definimos nosso `Context`, juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
+Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que foi obtido no momento em que definimos nosso `Context`, juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
 
 Agora você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children é algum componente que for passado para ele como filho, que é capturado pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
+
+Nota: Não é estritamente necessário que se crie um `myProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `myProvider` torna a sua lógica mais consisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados num único arquivo, criado especialmente para essa função.
+
+Agora vamos prover nosso Contexto para a aplicação.
 
 Edite o arquivo `App.js` com o seguinte conteúdo:
 
@@ -222,9 +226,9 @@ Primeiro, englobamos todo nosso componente por um `MyContext.Consumer`:
 
     Como vimos anteriormente, o Consumer tem a função de encontrar o Valor fornecido pelo Provider mais próximo. Nesse caso, nosso único Provider, denominado MyProvider.
 
-    Dentro dele inserimos uma função anônima e é assim que sempre devemos trabalhar ao usar Consumers para obter os dados de nosso Contexto: Declarar uma função que recebe como parâmetros o conteúdo do nosso Contexto e retorna o conteúdo de nosso componente.
+    Dentro dele inserimos uma função anônima, e é assim que sempre devemos trabalhar ao usar Consumers para obter os dados de nosso Contexto: Declarar uma função que recebe como parâmetros o conteúdo do nosso Contexto, e retorna o conteúdo de nosso componente.
 
-    Essa função anônima recebe como parâmetro o nosso value, que passamos anteriormente em Nosso Provider, e o desestrutura, obtendo assim os itens data, que tem como valor inicial uma string '#VQV!', e editData, que corresponde a uma função que edita o valor de data.
+    Essa função anônima recebe como parâmetro o nosso value, que passamos anteriormente em Nosso Provider, e o desestrutura, obtendo assim os itens data, que tem como valor inicial uma string com valor "#VQV!", e editData, que corresponde a uma função que edita o valor de data.
 
 ***Atente-se que, como estamos passando um código javaScript, temos que colocar essa função dentro de chaves `{}`.**
 
@@ -246,7 +250,7 @@ Por último adicionamos um `input` de texto:
 />
 ```
 
-Nesse `input` escreveremos algo e, graças ao `onChange`, chamará a função `editData`, passando como parâmetro o seu valor para alterar o valor de `data` do nosso Contexto.
+Nesse `input` escreveremos algo e, que executará a função passada no `onChange`, que chamará a função `editData`, passando como parâmetro o valor escrito, ara alterar o valor de `data` do nosso Contexto.
 
 Caso tenha interesse, edite o arquivo `App.css`:
 
@@ -277,7 +281,7 @@ Caso tenha interesse, edite o arquivo `App.css`:
 
 ```
 
-E, finalmente, chegou a hora de iniciar nossa aplicação para isualizarmos tudo que fizemos até agora.
+E, finalmente, chegou a hora de iniciar nossa aplicação paravisualizarmos tudo que fizemos até agora.
 
 Execute o seguinte comando:
 
