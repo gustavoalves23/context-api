@@ -367,12 +367,14 @@ Nesse ponto de seu progresso em React você provavelmente já deve estar bem fam
 Para utilizar a ferramenta, basta acessar os componentes na aba da extensão e selecionar o **componente que consome** o contexto.
 
 No caso da figura abaixo estamos utilizando a aplicação feita anteriormente.
+<br>
+
 
 <figure align="center">
     <img src="https://i.imgur.com/Df4Z9sK.png" alt="Component selection Figure" style="height:150px">
     <figcaption align = "center"><b>Seleção do componente</b></figcaption>
 </figure>
-
+<br>
 Com isso, teremos acesso a todo o contexto que o componente tem acesso:
 
 <figure align="center">
