@@ -358,3 +358,25 @@ Assim como nos componentes de classe, o uso do `Consumer` é uma forma de acessa
 
 Mas não se preocupe com isso por enquanto. Na próxima aula você entenderá melhor os componentes funcionais e como os hooks do React funcionam.
 
+---
+
+## Debugando seu contexto
+
+Nesse ponto de seu progresso em React você provavelmente já deve estar bem familiarizado com a ferramenta <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" target="_blank">React Developer Tools</a>. Ela também é uma ótima opção para debugar o seu contexto do `Context API`.
+
+Para utilizar a ferramenta, basta acessar os componentes na aba da extensão e selecionar o **componente que consome** o contexto.
+
+No caso da figura abaixo estamos utilizando a aplicação feita anteriormente.
+
+<figure align="center">
+    <img src="https://i.imgur.com/Df4Z9sK.png" alt="Component selection Figure" style="height:150px">
+    <figcaption align = "center"><b>Seleção do componente</b></figcaption>
+</figure>
+
+Com isso, teremos acesso a todo o contexto que o componente tem acesso:
+
+<figure align="center">
+    <img src="https://i.imgur.com/ECHjCc4.png" alt="Context dev-tools Figure" style="height:100px">
+    <figcaption align = "center"><b>Contexto acessado pelo componente Child</b></figcaption>
+</figure>
+
