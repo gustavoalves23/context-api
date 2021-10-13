@@ -54,5 +54,5 @@ Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exe
 4- Continuaremos na ideia de definir tarefas , porém, agora serão novas tarefas onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais desejam realizar.
  - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma `checklist` idêntica nos componentes  dos personágens Homer, Marge, Bart e Liza.
  - Essa `checklist` deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
- - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair da `checklist` e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem à concluiu.
+ - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair da `checklist` e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem às concluiu.
  - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.
