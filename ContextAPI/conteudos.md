@@ -40,7 +40,7 @@ A partir desse momento criamos um novo contexto denominado `myContext`.
 
 A função `createContext` retorna dois componentes essenciais para a utilização do nosso contexto: O `Provider` e o `Consumer`.
 
-O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e fazerem mudanças nele.
+O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e permitir que ele seja alterado.
 
 O **Consumer** tem a função de pegar **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão) caso ele tenha sido fornecido na declaração do nosso contexto.
 
