@@ -38,7 +38,7 @@ const myContext = createContext(defaultValue);
 
 A partir desse momento criamos um novo contexto denominado `myContext`.
 
-A função `createContext` retorna dois componentes essenciais para a utilização do nosso contexto, o `Provider` e o `Consumer`.
+A função `createContext` retorna dois componentes essenciais para a utilização do nosso contexto: O `Provider` e o `Consumer`.
 
 O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e fazerem mudanças nele.
 
