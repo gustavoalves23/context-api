@@ -281,7 +281,7 @@ Caso tenha interesse, edite o arquivo `App.css`:
 
 ```
 
-E, finalmente, chegou a hora de iniciar nossa aplicação paravisualizarmos tudo que fizemos até agora.
+E, finalmente, chegou a hora de iniciar nossa aplicação para visualizarmos tudo que fizemos até agora.
 
 Execute o seguinte comando:
 
@@ -298,9 +298,9 @@ Se tudo ocorrer como planejado, você verá uma tela semelhante à essa: :tada:
     <figcaption align = "center"><b>Context API APP</b></figcaption>
 </figure>
 
-Perceba que nosso componente já está recebendo os dados de nosso Contexto. Agora escreva no `input` e altere veja o valor apresentado ser alterado!
+Perceba que nosso componente já está recebendo os dados de nosso Contexto. Agora escreva no `input` e veja o valor apresentado ser alterado!
 
-Como você pode perceber, mesmo sem receber nenhuma informação do componente `Parent`, o componente `Child` consegue consumir e editar dados.
+Como você pôde perceber, mesmo sem receber nenhuma informação do componente `Parent`, o componente `Child` consegue consumir e editar dados.
 
 ---
 
