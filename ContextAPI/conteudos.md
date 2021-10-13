@@ -373,7 +373,6 @@ No caso da figura abaixo estamos utilizando a aplicação feita anteriormente.
     <figcaption align = "center"><b>Seleção do componente</b></figcaption>
 </figure>
 <br>
-
 Com isso, teremos acesso a todo o contexto que o componente tem acesso:
 
 <figure align="center">
