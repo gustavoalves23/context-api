@@ -1,0 +1,6 @@
+ - <a href="https://pt-br.reactjs.org/docs/context.html" target="_blank">React.js - Documentação Oficial</a>
+ - <a href="https://pt-br.reactjs.org/docs/context.html#consuming-multiple-contexts" target="_blank">React.js - Multiplos contextos na Context API</a>
+ - <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" target="_blank">React Developer Tools</a>
+ - <a href="https://www.devmedia.com.br/react-js-passando-dados-com-context-api/42904" target="_blank">Passando dados com Context API, por Romulo Sousa</a>
+ - <a href="https://www.taniarascia.com/using-context-api-in-react/" target="_blank">Using Context API in React (Hooks and Classes), por Tania Rascia</a>
+ - <a href="https://kentcdodds.com/blog/how-to-use-react-context-effectively" target="_blank">How to use React Context effectively, por Kent C. Dodds</a>

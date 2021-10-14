@@ -353,7 +353,7 @@ MeuComponente.contextType = MyContext;
 
 ```
 
-**Atenção:** A Context API nos permite criar mais de um contexto por aplicação. Caso precise consumir mais de um contexto no mesmo componente será necessário o uso do `Consumer`, como visto no conteúdo passado. Caso tenha interesse em ver mais sobre o uso de multiplos contextos, acesse a <a href="https://pt-br.reactjs.org/docs/context.html#consuming-multiple-contexts" target="_blank">documentação</a>.
+**Atenção:** A Context API nos permite criar mais de um contexto por aplicação. Caso precise consumir mais de um contexto no mesmo componente será necessário o uso do `Consumer`, como visto no conteúdo passado. Caso tenha interesse em ver mais sobre o uso de multiplos contextos, acesse o conteúdo *multiplos contextos na Context API* disponível na seção de recursos adicionais.
 
 *Componentes funcionais*
 
@@ -365,7 +365,7 @@ Mas não se preocupe com isso por enquanto. Na próxima aula você entenderá me
 
 ## Debugando seu contexto
 
-Nesse ponto de seu progresso em React você provavelmente já deve estar bem familiarizado com a ferramenta <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" target="_blank">React Developer Tools</a>. Ela também é uma ótima opção para debugar o seu contexto do `Context API`.
+Nesse ponto de seu progresso em React você provavelmente já deve estar bem familiarizado com a ferramenta *React Developer Tools*. Ela também é uma ótima opção para debugar o seu contexto do `Context API`.
 
 Para utilizar a ferramenta, basta acessar os componentes na aba da extensão e selecionar o **componente que consome** o contexto.
 
