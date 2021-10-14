@@ -1,6 +1,6 @@
 ## Gabarito dos exercícios
 
-**Atenção:** Esse gabarito possui estilização. Caso tenha interesse, utilize o arquivo `.ccs` no final da página.
+**Atenção:** Esse gabarito possui estilização. Caso tenha interesse, utilize o arquivo `.css` fornecido no final da página.
 
 1 - Crie o contexto de sua aplicação, ele deve conter dados como:
 - Quais as quatro tarefas que a família deve realizar.
@@ -56,12 +56,6 @@ class MyProvider extends Component {
     });
   }
 
-  changeDay(day) {
-    this.setState({
-      day,
-    });
-  }
-
   randomizeObligations() {
     const tasks = ['lavar a louça', 'jogar o lixo', 'regar as plantas', 'varrer o chão'];
     const randomizedTasks = tasks
@@ -76,16 +70,18 @@ class MyProvider extends Component {
     });
   }
 
+  changeDay(day) {
+    this.randomizeObligations();
+    this.maggieAndDog(day);
+  }
+
   render() {
     const { children } = this.props;
     return (
       <MyContext.Provider
         value={ {
           ...this.state,
-          addToDone: this.addToDone,
           changeDay: this.changeDay,
-          randomizeObligations: this.randomizeObligations,
-          maggieAndDog: this.maggieAndDog,
         } }
       >
         { children }
@@ -99,8 +95,6 @@ MyProvider.propTypes = {
 };
 
 export default MyProvider;
-
-
 
 ```
 
@@ -120,15 +114,13 @@ import MyContext from '../context/MyContext';
 
 class Family extends Component {
   render() {
-    const { changeDay, randomizeObligations, maggieAndDog } = this.context;
+    const { changeDay } = this.context;
     return (
       <div className="family">
         <select
           name="weekDay"
           onChange={ ({ target: { value } }) => {
             changeDay(value);
-            randomizeObligations();
-            maggieAndDog(value);
           } }
         >
           <option value="segunda">Segunda-feira</option>
@@ -149,8 +141,6 @@ class Family extends Component {
 Family.contextType = MyContext;
 
 export default Family;
-
-
 ```
 ```js
 //...src/components/Parent.jsx
@@ -184,7 +174,6 @@ Parent.propTypes = {
 };
 
 export default Parent;
-
 
 ```
 ```js
@@ -236,7 +225,7 @@ class Adults extends Component {
         <h1>Adultos</h1>
         <h2>{`${maggieResponsable} está cuidando da Maggie`}</h2>
         <Parent name="Homer" />
-        <Parent name="Margie" />
+        <Parent name="Marge" />
       </div>
     );
   }
@@ -302,7 +291,6 @@ MaggieAndDog.propTypes = {
 
 export default MaggieAndDog;
 
-
 ```
 ```js
 //...src/App.js
@@ -322,6 +310,228 @@ function App() {
 export default App;
 
 ```
+
+3 - Crie a lógica para permitir que as tarefas sejam marcadas como completas:
+- O Componente da família deve apresentar a lista de tarefas que foram cumpridas.
+- Os componentes de Homer, Marge, Bart e Lisa dever possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
+- Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
+
+```js
+//.../src/context/MyProvider.js
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import MyContext from './MyContext';
+
+class MyProvider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      doneTasks: [],
+      homerObligation: '',
+      margeObligation: '',
+      lisaObligation: '',
+      bartObligation: '',
+      maggieResponsable: '',
+      dogResponsable: '',
+    };
+    this.randomizeObligations = this.randomizeObligations.bind(this);
+    this.maggieAndDog = this.maggieAndDog.bind(this);
+    this.changeDay = this.changeDay.bind(this);
+    this.endTask = this.endTask.bind(this);
+  }
+
+  componentDidMount() {
+    this.randomizeObligations();
+    this.maggieAndDog();
+  }
+
+  maggieAndDog(day = 'segunda') {
+    const isEvenDay = ['segunda', 'quarta', 'sexta', 'domingo']
+      .some((weekDay) => weekDay === day);
+    this.setState({
+      maggieResponsable: isEvenDay ? 'Homer' : 'Marge',
+      dogResponsable: isEvenDay ? 'Lisa' : 'Bart',
+    });
+  }
+
+  endTask(task) {
+    this.setState((prevState) => ({
+      doneTasks: [...prevState.doneTasks, task],
+    }));
+  }
+
+  randomizeObligations() {
+    const tasks = ['lavar a louça', 'jogar o lixo', 'regar as plantas', 'varrer o chão'];
+    const randomizedTasks = tasks
+      .map((taskName) => ({ taskName, order: Math.random() }))
+      .sort((task1, task2) => task1.order - task2.order)
+      .map((task) => task.taskName);
+    this.setState({
+      doneTasks: [],
+      homerObligation: randomizedTasks[0],
+      margeObligation: randomizedTasks[1],
+      lisaObligation: randomizedTasks[2],
+      bartObligation: randomizedTasks[3],
+    });
+  }
+
+  changeDay(day) {
+    this.randomizeObligations();
+    this.maggieAndDog(day);
+  }
+
+  render() {
+    const { children } = this.props;
+    return (
+      <MyContext.Provider
+        value={ {
+          ...this.state,
+          changeDay: this.changeDay,
+          endTask: this.endTask,
+        } }
+      >
+        { children }
+      </MyContext.Provider>
+    );
+  }
+}
+
+MyProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default MyProvider;
+
+```
+
+```js
+//...src/components/Family.jsx
+
+import React, { Component } from 'react';
+import Adults from './Adults';
+import Kids from './Kids';
+import MyContext from '../context/MyContext';
+
+class Family extends Component {
+  render() {
+    const { changeDay, doneTasks } = this.context;
+    return (
+      <div className="family">
+        <div>
+          <select
+            name="weekDay"
+            onChange={ ({ target: { value } }) => {
+              changeDay(value);
+            } }
+          >
+            <option value="segunda">Segunda-feira</option>
+            <option value="terça">Terça-feira</option>
+            <option value="quarta">Quarta-feira</option>
+            <option value="quinta">Quinta-feira</option>
+            <option value="sexta">Sexta-feira</option>
+            <option value="sabado">Sábado</option>
+            <option value="domingo">Domingo</option>
+          </select>
+          <h3>Tarefas realizadas:</h3>
+          <ul>
+            {doneTasks.map((doneTask) => (
+              <li key={ doneTask }>{doneTask}</li>
+            ))}
+          </ul>
+        </div>
+        <Adults />
+        <Kids />
+      </div>
+    );
+  }
+}
+
+Family.contextType = MyContext;
+
+export default Family;
+
+```
+
+```js
+//...src/components/Child.jsx
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from '../context/MyContext';
+import MaggieAndDog from './MaggieAndDog';
+
+class Child extends Component {
+  render() {
+    const { name } = this.props;
+    const { lisaObligation, bartObligation, dogResponsable,
+      endTask, doneTasks } = this.context;
+    const toDo = name === 'Lisa' ? lisaObligation : bartObligation;
+    return (
+      <div className="person">
+        <div>
+          <h3>{name}</h3>
+          <h3>{`Minha tarefa é: ${toDo}`}</h3>
+          {!doneTasks.some((task) => task === toDo)
+          && <button type="button" onClick={ () => endTask(toDo) }>Finalizar</button>}
+        </div>
+        {dogResponsable === name && <MaggieAndDog name="Cachorro" />}
+      </div>
+    );
+  }
+}
+
+Child.contextType = MyContext;
+
+Child.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Child;
+
+```
+
+```js
+
+//...src/components/Parent.jsx
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from '../context/MyContext';
+import MaggieAndmaggie from './MaggieAndDog';
+
+class Parent extends Component {
+  render() {
+    const { name } = this.props;
+    const { homerObligation, margeObligation, maggieResponsable,
+      endTask, doneTasks } = this.context;
+    const toDo = name === 'Homer' ? homerObligation : margeObligation;
+    return (
+      <div className="person">
+        <div>
+          <h3>{name}</h3>
+          <h3>{`Minha tarefa é: ${toDo}`}</h3>
+          {!doneTasks.some((task) => task === toDo)
+          && <button type="button" onClick={ () => endTask(toDo) }>Finalizar</button>}
+        </div>
+        {maggieResponsable === name && <MaggieAndmaggie name="Maggie" />}
+      </div>
+    );
+  }
+}
+
+Parent.contextType = MyContext;
+
+Parent.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Parent;
+
+```
+
+
 
 CSS:
 

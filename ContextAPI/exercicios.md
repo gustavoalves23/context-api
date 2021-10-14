@@ -51,13 +51,20 @@ Aqui que você deve declarar as funções que irão dividir, de forma aleatória
 - Os componentes de Homer, Marge, Bart e Lisa dever possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
 - Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
 
+Nessa etapa seu aplicativo deverá ser semelhante a esse:
+
+<figure align="center">
+    <img src="https://i.imgur.com/Sz1yN6A.gif" alt="Simpson exercise example Figure" style="height:400px">
+    <figcaption align = "center"><b>Exemplo de funcionamento do exercício</b></figcaption>
+</figure>
+
 ---
 
 Bônus
 
 Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exercício:
 
-4- Continuaremos na ideia de definir tarefas , porém, agora serão novas tarefas onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais desejam realizar.
+4- Continuaremos na ideia de definir tarefas , porém, agora serão novas tarefas onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
  - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma `checklist` idêntica nos componentes  dos personágens Homer, Marge, Bart e Lisa.
  - Essa `checklist` deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
  - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair da `checklist` e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem às concluiu.
