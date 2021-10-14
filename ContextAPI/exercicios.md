@@ -71,6 +71,7 @@ Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exe
  - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma lista de botões idêntica nos componentes  dos personagens Homer, Marge, Bart e Lisa.
  - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
  - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem as concluiu.
+ - Ao alterar o dia o status das tarefas de sábado devem ser reiniciados.
  - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.
 
 Ao terminar, seu aplicativo deverá ser semelhante a esse:
