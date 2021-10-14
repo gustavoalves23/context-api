@@ -6,6 +6,7 @@ A **Context API** permite que diversos dados de sua aplicação estejam concentr
 </figure>
 <br>
 <br>
+<br>
 
 Ao utilizar a **Context API** você será capaz de desenvolver aplicações React de grandes escalas e complexidade com mais facilidade e confiança, criando componentes mais independentes e auto-suficientes.
 
