@@ -21,6 +21,9 @@ A estrutura das responsabilidades deve ser semelhante a essa:
     <img src="https://i.imgur.com/z0hnahS.png" alt="Simpson component three Figure" style="height:400px">
     <figcaption align = "center"><b>Estrutura de responsabilidades</b></figcaption>
 </figure>
+<br>
+<br>
+<br>
 
 - Deve existir um componente para os adultos e outro para as crianças. Esses componentes devem saber e apresentar quem vai ficar responsável pela Maggie ou o Cachorro.
 - A Maggie e o Cachorro devem ser componentes filhos de seus respectivos responsáveis, sendo que o componente só deve ser renderizado dentro do que for responsável por ele no dia.
@@ -57,6 +60,9 @@ Nessa etapa seu aplicativo deverá ser semelhante a esse:
     <img src="https://i.imgur.com/Sz1yN6A.gif" alt="Simpson exercise example Figure" style="height:400px">
     <figcaption align = "center"><b>Exemplo de funcionamento do exercício</b></figcaption>
 </figure>
+<br>
+<br>
+<br>
 
 ---
 
