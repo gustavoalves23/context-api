@@ -10,15 +10,15 @@ Iremos trabalhar com os cinco personagens principais da série e o cachorro da f
 Pontos importantes:
 
 - Cada personagem deve corresponder a um componente de sua aplicação.
-- Cada personagem só deve saber somente aquilo que for necessário. (O Homer não precisa saber que vai cuidar do cachorro, por exemplo)
-- Todas as informações devem ser obtidas do contexto da aplicação.
+- Cada personagem deve saber somente aquilo que for necessário. (O Homer não precisa saber que vai cuidar do cachorro, por exemplo)
+- Tente obter o máximo de informações possível pelo contexto da aplicação.(sem utilizar props).
 
-**Dica:** Os componentes que você deve desenvolver contém várias similaridades. Tente desenvolver componentes reútilizaveis.
+**Dica:** Os componentes que você deve desenvolver contêm várias similaridades. Tente desenvolver componentes reutilizáveis.
 
-A estrutura das responsabilidades deve ser semelhante à essa:
+A estrutura das responsabilidades deve ser semelhante a essa:
 
 <figure align="center">
-    <img src="https://i.imgur.com/lQI4GdW.png" alt="Simpson component three Figure" style="height:400px">
+    <img src="https://i.imgur.com/z0hnahS.png" alt="Simpson component three Figure" style="height:400px">
     <figcaption align = "center"><b>Estrutura de responsabilidades</b></figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ Agora que você já entendeu a estrutura da aplicação, vamos aos exercícios:
 - Quem deve ser responsável pela Maggie e pelo Cachorro.
 - Tarefas já finalizadas.
 
-Aqui que você deve declarar as funções que irão dividir, de forma aleatória, as tarefas de cada um, assim como decidir que cuida da Maggie e da ração para o cachorro.
+Aqui que você deve declarar as funções que irão dividir, de forma aleatória, as tarefas de cada um, assim como decidir quem cuida da Maggie e da ração para o cachorro.
 
 - Ao alterar o dia da semana, os responsáveis por cada tarefa devem ser alterados.
 - Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
@@ -65,7 +65,7 @@ Bônus
 Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exercício:
 
 4- Continuaremos na ideia de definir tarefas , porém, agora serão novas tarefas onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
- - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma `checklist` idêntica nos componentes  dos personágens Homer, Marge, Bart e Lisa.
- - Essa `checklist` deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
- - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair da `checklist` e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem às concluiu.
+ - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma lista de botões idêntica nos componentes  dos personagens Homer, Marge, Bart e Lisa.
+ - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
+ - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem as concluiu.
  - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.

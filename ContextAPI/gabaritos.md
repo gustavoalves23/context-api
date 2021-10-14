@@ -531,44 +531,322 @@ export default Parent;
 
 ```
 
+---
+
+## Bônus
+
+4- Continuaremos na ideia de definir tarefas . Porém, agora serão novas tarefas, onde todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
+ - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma `checklist` idêntica nos componentes dos personagens Homer, Marge, Bart e Lisa.
+ - Essa `checklist` deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
+ - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair da `checklist` e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem às concluiu.
+ - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.
+
+```js
+//.../src/context/MyProvider.js
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import MyContext from './MyContext';
+
+class MyProvider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      doneTasks: [],
+      weekDay: 'segunda',
+      saturdayTasks: ['Fazer compras', 'Lavar roupas', 'Cortar grama',
+        'Lavar calçada', 'Cuidar das plantas'],
+      doneSaturdayTasks: [],
+      homerObligation: '',
+      margeObligation: '',
+      lisaObligation: '',
+      bartObligation: '',
+      maggieResponsable: '',
+      dogResponsable: '',
+    };
+    this.randomizeObligations = this.randomizeObligations.bind(this);
+    this.maggieAndDog = this.maggieAndDog.bind(this);
+    this.changeDay = this.changeDay.bind(this);
+    this.endTask = this.endTask.bind(this);
+    this.endSaturdayTask = this.endSaturdayTask.bind(this);
+  }
+
+  componentDidMount() {
+    this.randomizeObligations();
+    this.maggieAndDog();
+  }
+
+  maggieAndDog(day = 'segunda') {
+    const isEvenDay = ['segunda', 'quarta', 'sexta', 'domingo']
+      .some((weekDay) => weekDay === day);
+    this.setState({
+      maggieResponsable: isEvenDay ? 'Homer' : 'Marge',
+      dogResponsable: isEvenDay ? 'Lisa' : 'Bart',
+    });
+  }
+
+  endSaturdayTask(doneTask, person) {
+    this.setState((prevState) => ({
+      saturdayTasks: prevState.saturdayTasks.filter((task) => task !== doneTask),
+      doneSaturdayTasks: [...prevState.doneSaturdayTasks, { task: doneTask, person }],
+    }));
+  }
+
+  endTask(task) {
+    this.setState((prevState) => ({
+      doneTasks: [...prevState.doneTasks, task],
+    }));
+  }
+
+  randomizeObligations() {
+    const tasks = ['lavar a louça', 'jogar o lixo', 'regar as plantas', 'varrer o chão'];
+    const randomizedTasks = tasks
+      .map((taskName) => ({ taskName, order: Math.random() }))
+      .sort((task1, task2) => task1.order - task2.order)
+      .map((task) => task.taskName);
+    this.setState({
+      doneTasks: [],
+      homerObligation: randomizedTasks[0],
+      margeObligation: randomizedTasks[1],
+      lisaObligation: randomizedTasks[2],
+      bartObligation: randomizedTasks[3],
+    });
+  }
+
+  changeDay(day) {
+    this.randomizeObligations();
+    this.maggieAndDog(day);
+    this.setState({
+      weekDay: day,
+      saturdayTasks: ['Fazer compras', 'Lavar roupas', 'Cortar grama',
+        'Lavar calçada', 'Cuidar das plantas'],
+      doneSaturdayTasks: [],
+    });
+  }
+
+  render() {
+    const { children } = this.props;
+    return (
+      <MyContext.Provider
+        value={ {
+          ...this.state,
+          changeDay: this.changeDay,
+          endTask: this.endTask,
+          endSaturdayTask: this.endSaturdayTask,
+        } }
+      >
+        { children }
+      </MyContext.Provider>
+    );
+  }
+}
+
+MyProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default MyProvider;
+
+```
+
+```js
+//...src/components/DoneSaturdayTasksList.jsx
+
+import React, { Component } from 'react';
+import MyContext from '../context/MyContext';
+
+class DoneSaturdayTasksList extends Component {
+  render() {
+    const { doneSaturdayTasks } = this.context;
+    return (
+      <div>
+        <h3>Tarefas de Sábado:</h3>
+        <ul>
+          {doneSaturdayTasks.map((doneTask) => (
+            <li
+              key={ `${doneTask.task} done` }
+            >
+              {`${doneTask.task} - ${doneTask.person}`}
+
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+DoneSaturdayTasksList.contextType = MyContext;
+
+export default DoneSaturdayTasksList;
+
+```
+
+```js
+//...src/components/SaturdayTasksChecklist.jsx
+
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from '../context/MyContext';
+
+class SaturdayTasksChecklist extends Component {
+  render() {
+    const { saturdayTasks, endSaturdayTask } = this.context;
+    const { name } = this.props;
+    return (
+      <div className="saturday-check-list">
+        {saturdayTasks.map((task) => (
+          <button
+            key={ `${task} toDo` }
+            onClick={ () => {
+              endSaturdayTask(task, name);
+            } }
+            type="button"
+          >
+            {task}
+
+          </button>
+        ))}
+      </div>
+    );
+  }
+}
+
+SaturdayTasksChecklist.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+SaturdayTasksChecklist.contextType = MyContext;
+
+export default SaturdayTasksChecklist;
+
+```
+
+```js
+//...src/components/Parent.jsx
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from '../context/MyContext';
+import MaggieAndmaggie from './MaggieAndDog';
+import SaturdayTasksChecklist from './SaturdayTasksChecklist';
+
+class Parent extends Component {
+  render() {
+    const { name } = this.props;
+    const { homerObligation, margeObligation, maggieResponsable,
+      endTask, doneTasks, weekDay } = this.context;
+    const toDo = name === 'Homer' ? homerObligation : margeObligation;
+    return (
+      <div className="person">
+        <div>
+          <h3>{name}</h3>
+          <h3>{`Minha tarefa é: ${toDo}`}</h3>
+          {!doneTasks.some((task) => task === toDo)
+          && <button type="button" onClick={ () => endTask(toDo) }>Finalizar</button>}
+        </div>
+        {maggieResponsable === name && <MaggieAndmaggie name="Maggie" />}
+        {weekDay === 'sabado' && <SaturdayTasksChecklist name={ name } />}
+      </div>
+    );
+  }
+}
+
+Parent.contextType = MyContext;
+
+Parent.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Parent;
+
+```
+
+```js
+//...src/components/Child.jsx
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import MyContext from '../context/MyContext';
+import MaggieAndDog from './MaggieAndDog';
+import SaturdayTasksChecklist from './SaturdayTasksChecklist';
+
+class Child extends Component {
+  render() {
+    const { name } = this.props;
+    const { lisaObligation, bartObligation, dogResponsable,
+      endTask, doneTasks, weekDay } = this.context;
+    const toDo = name === 'Lisa' ? lisaObligation : bartObligation;
+    return (
+      <div className="person">
+        <div>
+          <h3>{name}</h3>
+          <h3>{`Minha tarefa é: ${toDo}`}</h3>
+          {!doneTasks.some((task) => task === toDo)
+          && <button type="button" onClick={ () => endTask(toDo) }>Finalizar</button>}
+        </div>
+        {dogResponsable === name && <MaggieAndDog name="Cachorro" />}
+        {weekDay === 'sabado' && <SaturdayTasksChecklist name={ name } />}
+      </div>
+    );
+  }
+}
+
+Child.contextType = MyContext;
+
+Child.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export default Child;
+
+```
 
 
 CSS:
 
 ```css
 .family {
-background-color: rgb(243, 243, 157);
-display: flex;
-align-items: center;
-border: 2px solid black;
-padding: 5px;
+  align-items: center;
+  background-color: rgb(243, 243, 157);
+  border: 2px solid black;
+  display: flex;
+  padding: 5px;
 }
 
 .family select {
-  padding: 10px 20px;
-  border-radius: 10px;
   background-color: tomato;
+  border-radius: 10px;
   color: white;
+  padding: 10px 20px;
 }
 
 .container {
   border: 5px solid black;
-  width: 50%;
   height: 80%;
   margin: 10px;
   text-align: center;
+  width: 50%;
 }
 
 .person {
   border: 5px solid black;
-  margin: 10px;
-  padding: 10px;
   display: flex;
   justify-content: space-around;
+  margin: 10px;
+  padding: 10px;
 }
 
 .maggie-and-dog {
   border: 5px solid black;
   width: 120px;
 }
+
+.saturday-check-list {
+  display: flex;
+  flex-direction: column;
+}
+
 ```

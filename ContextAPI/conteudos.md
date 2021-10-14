@@ -109,7 +109,7 @@ export default MyContext;
 
 ```
 
-Note que, como criamos um arquivo dedicado para nosso Contexto, temos que exportar ele para poder acessá-lo.
+Note que, como criamos um arquivo dedicado para nosso Contexto, temos que fazer um `export` para poder acessá-lo posteriormente.
 
 ```js
 //my-context-app/src/Context/myProvider.js
@@ -158,7 +158,7 @@ Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que 
 
 Agora você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children é algum componente que for passado para ele como filho, que é capturado pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
 
-Nota: Não é estritamente necessário que se crie um `myProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `myProvider` torna a sua lógica mais consisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados num único arquivo, criado especialmente para essa função.
+Nota: Não é estritamente necessário que se crie um `myProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `myProvider` torna a sua lógica mais concisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados num único arquivo, criado especialmente para essa função.
 
 Agora vamos prover nosso Contexto para a aplicação.
 
