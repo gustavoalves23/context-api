@@ -69,3 +69,10 @@ Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exe
  - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
  - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem as concluiu.
  - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.
+
+Ao terminar, seu aplicativo deverá ser semelhante a esse:
+
+<figure align="center">
+    <img src="https://i.imgur.com/SiqAmzx.gif" alt="Simpson exercise example Figure" style="height:400px">
+    <figcaption align = "center"><b>Exemplo de funcionamento do exercício</b></figcaption>
+</figure>
