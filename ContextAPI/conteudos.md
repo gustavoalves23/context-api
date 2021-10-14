@@ -297,6 +297,9 @@ Se tudo ocorrer como planejado, você verá uma tela semelhante à essa: :tada:
     <img src="https://i.imgur.com/wSPvgAs.png" alt="Context API APP Figure" style="height:400px">
     <figcaption align = "center"><b>Context API APP</b></figcaption>
 </figure>
+<br>
+<br>
+<br>
 
 Perceba que nosso componente já está recebendo os dados de nosso Contexto. Agora escreva no `input` e veja o valor apresentado ser alterado!
 
