@@ -42,7 +42,7 @@ A função `createContext` retorna dois componentes essenciais para a utilizaç�
 
 O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e permitir que ele seja alterado.
 
-O **Consumer** tem a função de "pegar" **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão), caso ele tenha sido fornecido na declaração do nosso contexto.
+O **Consumer** tem a função de "pegar" **os valores fornecidos pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão), caso ele tenha sido fornecido na declaração do nosso contexto.
 
 Para compreendermos melhor como aplicar esses componentes, vamos criar uma aplicação.
 
@@ -154,11 +154,11 @@ export default MyProvider;
 
 Perceba que passamos uma prop denominada `value` para nosso componente `myContext.Provider`. É nesse `value` que serão passados todos os dados que desejamos compartilhar, além das funções que alteram esses dados. Esses dados podem ser passados de diversas maneiras, porém a forma mais comum é passá-los dentro de um objeto. A forma ideal para armazenar nossos dados é no próprio estado do Provider. Com isso, podemos facilmente acessar e editar esses valores.
 
-Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que foi obtido no momento em que definimos nosso `Context`, juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
+Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que foi obtido no momento em que definimos nosso `Context` (`MyContext.Provider`), juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
 
-Agora, você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children é algum componente que for passado para ele como filho, que é capturado pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
+Agora, você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children são quaisquer componentes que forem passado para ele como filhos, que são capturados pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
 
-Nota: Não é estritamente necessário que se crie um `myProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `myProvider` torna a sua lógica mais concisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados num único arquivo, criado especialmente para essa função.
+Nota: Não é estritamente necessário que se crie um `MyProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `MyProvider` torna a sua lógica mais concisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados em um único arquivo, criado especialmente para essa função.
 
 Agora, vamos prover nosso Contexto para a aplicação.
 
@@ -224,11 +224,11 @@ Foram feitas muitas mudanças em nosso componente, vamos analisar uma por uma:
 
 Primeiro, englobamos todo nosso componente por um `MyContext.Consumer`:
 
-    Como vimos anteriormente, o Consumer tem a função de encontrar o Valor fornecido pelo Provider mais próximo. Nesse caso, nosso único Provider, denominado MyProvider.
+    Como vimos anteriormente, o Consumer tem a função de encontrar os valores fornecidos pelo Provider mais próximo. Nesse caso, temos um único Provider, denominado MyProvider.
 
     Dentro dele inserimos uma função anônima, e é assim que sempre devemos trabalhar ao usar Consumers para obter os dados de nosso Contexto: Declarar uma função que recebe como parâmetros o conteúdo do nosso Contexto, e retorna o conteúdo de nosso componente.
 
-    Essa função anônima recebe como parâmetro o nosso value, que passamos anteriormente em Nosso Provider, e o desestrutura, obtendo assim os itens data, que tem como valor inicial uma string com valor "#VQV!", e editData, que corresponde a uma função que edita o valor de data.
+    Essa função anônima recebe como parâmetro o nosso value, que passamos anteriormente em nosso Provider, e o desestrutura, obtendo assim os itens data, que tem como valor inicial uma string com valor "#VQV!", e editData, que corresponde a uma função que edita o valor de data.
 
 ***Atente-se que, como estamos passando um código javaScript, temos que colocar essa função dentro de chaves `{}`.**
 
@@ -349,7 +349,7 @@ class MeuComponente extends Component {
 }
 
 MeuComponente.contextType = MyContext;
-//Atríbuimos na propriedade contextType de nosso componente o valor de nosso Contexto.
+//Atríbuimos na propriedade contextType do componente nosso Contexto.
 
 ```
 
