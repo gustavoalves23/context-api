@@ -24,7 +24,7 @@ Se sua resposta para alguma das perguntas acima for sim, provavelmente o uso de 
 
 ## Criando um Contexto
 
-Como a Context API é uma ferramenta nativa do React, não há a necessidade de sua instalação, diferentemente do Redux.
+Como a Context API é uma ferramenta nativa do React, não há a necessidade de sua instalação caso já tenha instalado o React, diferentemente do Redux.
 
 Para criarmos o nosso contexto, que irá armazenar nossos dados, basta utilizamos a função `createContext`, que deve ser importada do React :
 
