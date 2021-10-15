@@ -2,7 +2,7 @@
 
 **Atenção:** Esse gabarito possui estilização. Caso tenha interesse, utilize o arquivo `.css` fornecido no final da página.
 
-1 - Crie o contexto de sua aplicação, ele deve conter dados como:
+1 - Crie o contexto de sua aplicação. Ele deve conter dados como:
 - Quais as quatro tarefas que a família deve realizar.
 - Qual a função de cada pessoa.
 - Quem deve ser responsável pela Maggie e pelo Cachorro.
@@ -99,7 +99,7 @@ export default MyProvider;
 ```
 
 2 - Crie a estrutura de componentes:
-- O componente da família deve possuir um `<select>` com os dias da semana. Alterar o dia escolhido deve alterar as tarefas e responsabilidades no contexto.
+- O componente da família deve possuir um `<select>` com os dias da semana. Alterar o dia escolhido deve alterar as tarefas e as responsabilidades no contexto.
 - Ao alterar o dia da semana, os responsáveis por cada tarefa devem ser alterados.
 - Os componentes dos adultos e das crianças devem ser capazes de apresentar quem é responsável por cuidar da Maggie e do cachorro.
 - Os componentes de Homer, Marge, Bart e Lisa devem ser capazes de apresentar suas tarefas, assim como renderizar o componente da Maggie ou do cachorro, caso sejam responsáveis por eles.
@@ -313,7 +313,7 @@ export default App;
 
 3 - Crie a lógica para permitir que as tarefas sejam marcadas como completas:
 - O Componente da família deve apresentar a lista de tarefas que ainda não foram cumpridas.
-- Os componentes de Homer, Marge, Bart e Lisa dever possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
+- Os componentes de Homer, Marge, Bart e Lisa devem possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
 - Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
 
 ```js
@@ -535,12 +535,12 @@ export default Parent;
 
 ## Bônus
 
-4- Continuaremos na ideia de definir tarefas , porém, agora serão novas tarefas onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
- - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerado uma lista de botões idêntica nos componentes  dos personagens Homer, Marge, Bart e Lisa.
- - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique a vontade para escolher quais serão.
- - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluidas, assim como quem as concluiu.
- - Ao alterar o dia o status das tarefas de sábado devem ser reiniciados.
- - Atente-se que nenhum desses ítens deve estar presente caso o dia escolhido não seja **Sábado**.
+4- Continuaremos na ideia de definir tarefas; porém, agora serão novas tarefas, onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
+ - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerada uma lista de botões idêntica nos componentes  dos personagens Homer, Marge, Bart e Lisa.
+ - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique à vontade para escolher quais serão.
+ - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluídas, assim como quem as concluiu.
+ - Ao alterar o dia, os status das tarefas de sábado devem ser reiniciados.
+ - Atente-se que nenhum desses itens deve estar presente caso o dia escolhido não tenha sido **Sábado**.
 
 ```js
 //.../src/context/MyProvider.js

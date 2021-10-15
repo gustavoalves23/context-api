@@ -8,9 +8,9 @@ Antes de começarmos a aprender como utilizar a Context API, precisamos entender
 
     A Context API tem como objetivo reduzir a complexidade no compartilhamento de dados entre componentes de uma aplicação, permitindo que exista um estado global, comumente denominado de contexto, que armazenará dados que necessitem de ser acessados por diversos componentes sem a necessidade de passá-los via props entre os diversos níveis.
 
-    À primeira vista você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props. Em diversos casos sim. Porém, dependendo do nível de complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
+    À primeira vista, você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props. Em diversos casos, sim. Porém, dependendo do nível de complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
 
-    Então... Quando implementar um contexto global? Para responder essa pergunta precisamos refletir sobre a estrutura e funcionalidades da aplicação:
+    Então... Quando implementar um contexto global? Para responder essa pergunta, precisamos refletir sobre a estrutura e funcionalidades da aplicação:
 
     - Ela possui alguma informação relevante para diversos componentes ou páginas hierarquicamente distantes? (Idioma, Tema Escuro, Informações do usuário,...)
 
@@ -36,13 +36,13 @@ const defaultValue = '';
 const myContext = createContext(defaultValue);
 ```
 
-A partir desse momento criamos um novo contexto denominado `myContext`.
+A partir desse momento criamos um novo contexto, denominado `myContext`.
 
 A função `createContext` retorna dois componentes essenciais para a utilização do nosso contexto: O `Provider` e o `Consumer`.
 
 O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e permitir que ele seja alterado.
 
-O **Consumer** tem a função de pegar **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão) caso ele tenha sido fornecido na declaração do nosso contexto.
+O **Consumer** tem a função de pegar **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão), caso ele tenha sido fornecido na declaração do nosso contexto.
 
 Para compreendermos melhor como aplicar esses componentes, vamos criar uma aplicação.
 
@@ -156,11 +156,11 @@ Perceba que passamos uma prop denominada `value` para nosso componente `myContex
 
 Essa é a estrutura básica de nosso `Provider`. Ele retorna o **Provider** que foi obtido no momento em que definimos nosso `Context`, juntamente com os **valores que desejamos compartilhar**. Tudo isso englobando um componente `Children`.
 
-Agora você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children é algum componente que for passado para ele como filho, que é capturado pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
+Agora, você provavelmente deve estar se perguntando: "De onde veio esse Children?". Esse componente Children é algum componente que for passado para ele como filho, que é capturado pelo nosso Provider na forma de props. Logo a seguir iremos aplicar esse conceito.
 
 Nota: Não é estritamente necessário que se crie um `myProvider`. Você poderia englobar todo o conteúdo de sua aplicação em componentes já existentes, como o `App.js`, por exemplo. Porém, além de ser mais prático e deixar seu código visualmente mais limpo, utilizar um `myProvider` torna a sua lógica mais concisa e organizada, uma vez que todos os dados relacionados a determinado contexto estariam localizados num único arquivo, criado especialmente para essa função.
 
-Agora vamos prover nosso Contexto para a aplicação.
+Agora, vamos prover nosso Contexto para a aplicação.
 
 Edite o arquivo `App.js` com o seguinte conteúdo:
 
@@ -182,7 +182,7 @@ export default App;
 
 ```
 
-Perceba que o componente `Parent` foi passado para o `MyProvider` como filho dele. Com isso, o `MyProvider` pode acessar e renderizar o componente `Parent`. A partir desse momento, toda a família de componentes que estiver dentro do `MyProvider` (incluíndo o `Parent` e o `Child`) terá acesso ao seu contexto.
+Perceba que o componente `Parent` foi passado para o `MyProvider` como filho dele. Com isso, o `MyProvider` pode acessar e renderizar o componente `Parent`. A partir desse momento, toda a família de componentes que estiver dentro do `MyProvider` (incluindo o `Parent` e o `Child`) terá acesso ao seu contexto.
 
 Agora que nossa aplicação já tem acesso ao nosso **Contexto**, é hora de utilizar o `Consumer` para consumir os valores passados por nosso `Provider`.
 
@@ -239,7 +239,7 @@ Após isso, adicionamos um heading `<h4>`, passando `data` para ele.
 ```
 Ele será responsável por mostrar em nossa aplicação o valor de `data`.
 
-Por último adicionamos um `input` de texto:
+Por último, adicionamos um `input` de texto:
 
 ```html
 <input
@@ -250,7 +250,7 @@ Por último adicionamos um `input` de texto:
 />
 ```
 
-Nesse `input` escreveremos algo e, que executará a função passada no `onChange`, que chamará a função `editData`, passando como parâmetro o valor escrito, ara alterar o valor de `data` do nosso Contexto.
+Nesse `input`, ao escrevermos algo, executaremos a função passada no `onChange`, que chamará a função `editData`, passando como parâmetro o valor escrito, para alterar o valor de `data` do nosso Contexto.
 
 Caso tenha interesse, edite o arquivo `App.css`:
 
@@ -301,7 +301,7 @@ Se tudo ocorrer como planejado, você verá uma tela semelhante à essa: :tada:
 <br>
 <br>
 
-Perceba que nosso componente já está recebendo os dados de nosso Contexto. Agora escreva no `input` e veja o valor apresentado ser alterado!
+Perceba que nosso componente já está recebendo os dados de nosso Contexto. Agora, escreva no `input` e veja o valor apresentado ser alterado!
 
 Como você pôde perceber, mesmo sem receber nenhuma informação do componente `Parent`, o componente `Child` consegue consumir e editar dados.
 
@@ -309,15 +309,15 @@ Como você pôde perceber, mesmo sem receber nenhuma informação do componente 
 
 ## Consumindo o Contexto
 
-Durante toda a sua jornada de aprendizagem você com certeza já se deparou com casos onde uma mesma tarefa pode ser realizada de diversas maneiras distintas.
+Durante toda a sua jornada de aprendizagem você com certeza já se deparou com casos onde uma mesma tarefa pode ser realizada de diversas maneiras.
 
-Hoje não vai ser diferente. Você viu no conteúdo anterior que para consumirmos um contexto que nos foi provido devemos utilizar o `Consumer`, correto? Sim, essa é uma das formas, mas não é a única. E agora iremos ver mais uma forma para componentes de classe e comentar sobre o uso em componentes funcionais.
+Hoje não vai ser diferente. Você viu no conteúdo anterior que, para consumirmos um contexto que nos foi provido, devemos utilizar o `Consumer`, correto? Sim, essa é uma das formas, mas não é a única. E agora iremos ver mais uma forma para componentes de classe e comentar sobre o uso em componentes funcionais.
 
 *Componentes de Classe*
 
 Nos componentes de classe do React, existe uma propriedade no qual podemos atribuir o valor de nosso **contexto**. O nome dessa propriedade é `contextType`.
 
-Após da atribuição dessa propriedade, o valor do contexto pode ser acessado através de `this.context` podendo ser usado em todos os métodos do ciclo de vida do componentes:
+Após a atribuição dessa propriedade, o valor do contexto pode ser acessado através de `this.context`, podendo ser usado em todos os métodos do ciclo de vida dos componentes:
 
 ```js
 import React, { Component } from 'react';
@@ -349,15 +349,15 @@ class MeuComponente extends Component {
 }
 
 MeuComponente.contextType = MyContext;
-//Atribuimos na propriedade contextType de nosso componente o valor de nosso Contexto.
+//Atríbuimos na propriedade contextType de nosso componente o valor de nosso Contexto.
 
 ```
 
-**Atenção:** A Context API nos permite criar mais de um contexto por aplicação. Caso precise consumir mais de um contexto no mesmo componente será necessário o uso do `Consumer`, como visto no conteúdo passado. Caso tenha interesse em ver mais sobre o uso de multiplos contextos, acesse o conteúdo *multiplos contextos na Context API* disponível na seção de recursos adicionais.
+**Atenção:** A Context API nos permite criar mais de um contexto por aplicação. Caso precise consumir mais de um contexto no mesmo componente será necessário o uso do `Consumer`, como visto no conteúdo passado. Caso tenha interesse em ver mais sobre o uso de múltiplos contextos, acesse o conteúdo *múltiplos contextos na Context API*, disponível na seção de recursos adicionais.
 
 *Componentes funcionais*
 
-Assim como nos componentes de classe, o uso do `Consumer` é uma forma de acessar o contexto de nossa aplicação, no caso de componentes funcionais ainda temos mais uma opção: O hook useContext().
+Assim como nos componentes de classe, o uso do `Consumer` é uma forma de acessar o contexto de nossa aplicação. No caso de componentes funcionais, ainda temos mais uma opção: O hook useContext().
 
 Mas não se preocupe com isso por enquanto. Na próxima aula você entenderá melhor os componentes funcionais e como os hooks do React funcionam.
 
@@ -365,11 +365,11 @@ Mas não se preocupe com isso por enquanto. Na próxima aula você entenderá me
 
 ## Debugando seu contexto
 
-Nesse ponto de seu progresso em React você provavelmente já deve estar bem familiarizado com a ferramenta *React Developer Tools*. Ela também é uma ótima opção para debugar o seu contexto do `Context API`.
+Nesse ponto de seu progresso em React, você provavelmente já deve estar bem familiarizado com a ferramenta *React Developer Tools*. Ela também é uma ótima opção para debugar o seu contexto do `Context API`.
 
 Para utilizar a ferramenta, basta acessar os componentes na aba da extensão e selecionar o **componente que consome** o contexto.
 
-No caso da figura abaixo estamos utilizando a aplicação feita anteriormente.
+No caso da figura abaixo, estamos utilizando a aplicação feita anteriormente.
 <br>
 
 
