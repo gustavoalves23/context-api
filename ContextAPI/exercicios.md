@@ -40,7 +40,7 @@ Agora que você já entendeu a estrutura da aplicação, vamos aos exercícios:
 Aqui que você deve declarar as funções que irão dividir, de forma aleatória, as tarefas de cada um, assim como decidir quem cuida da Maggie e da ração para o cachorro.
 
 2 - Crie a estrutura de componentes:
-- O componente da família deve possuir um `<select>` com os dias da semana. Alterar o dia escolhido deve alterar as tarefas e responsabilidades no contexto.
+- O componente da família deve possuir um `<select>` com os dias da semana. Alterar o dia escolhido deve alterar as tarefas e as responsabilidades no contexto.
 - Ao alterar o dia da semana, os responsáveis por cada tarefa devem ser alterados.
 - Os componentes dos adultos e das crianças devem ser capazes de apresentar quem é responsável por cuidar da Maggie e do cachorro.
 - Os componentes de Homer, Marge, Bart e Lisa devem ser capazes de apresentar suas tarefas, assim como renderizar o componente da Maggie ou do cachorro, caso sejam responsáveis por eles.
