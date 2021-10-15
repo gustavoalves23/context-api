@@ -6,19 +6,19 @@ Agora que você já entendeu a importância e a utilidade da Context API, iremos
 
 Antes de começarmos a aprender como utilizar a Context API, precisamos entender seus objetivos e possíveis casos de uso.
 
-    A Context API tem como objetivo reduzir a complexidade no compartilhamento de dados entre componentes de uma aplicação, permitindo que exista um estado global, comumente denominado de contexto, que armazenará dados que necessitem de ser acessados por diversos componentes sem a necessidade de passá-los via props entre os diversos níveis.
+A Context API tem como objetivo reduzir a complexidade no compartilhamento de dados entre componentes de uma aplicação, permitindo que exista um estado global, comumente denominado de contexto, que armazenará dados que necessitem de ser acessados por diversos componentes sem a necessidade de passá-los via props entre os diversos níveis.
 
-    À primeira vista, você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props. Em diversos casos, sim. Porém, dependendo do nível de complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
+À primeira vista, você pode pensar que essa maneira de compartilhar dados é muito mais conveniente do que a utilização de props. Em diversos casos, sim. Porém, dependendo do nível de complexidade de sua aplicação, passar informações entre dois ou três níveis muitas das vezes ainda será mais interessante e simples de se implementar.
 
-    Então... Quando implementar um contexto global? Para responder essa pergunta, precisamos refletir sobre a estrutura e funcionalidades da aplicação:
+Então... Quando implementar um contexto global? Para responder essa pergunta, precisamos refletir sobre a estrutura e funcionalidades da aplicação:
 
-    - Ela possui alguma informação relevante para diversos componentes ou páginas hierarquicamente distantes? (Idioma, Tema Escuro, Informações do usuário,...)
+- Ela possui alguma informação relevante para diversos componentes ou páginas hierarquicamente distantes? (Idioma, Tema Escuro, Informações do usuário,...)
 
-    - Ela contém uma grande quantidade de dados a serem passados? (Lembre-se que a cada prop recebida você deve fazer a verificação utilizado propTypes. Fazer a verificação de grandes quantidades de dados em cada componente é um trabalho muito repetitivo.)
+- Ela contém uma grande quantidade de dados a serem passados? (Lembre-se que a cada prop recebida você deve fazer a verificação utilizado propTypes. Fazer a verificação de grandes quantidades de dados em cada componente é um trabalho muito repetitivo.)
 
-    - A sua aplicação possui dados que se atualizam com frequência ou necessitam de manutenção constante? (Concentrar os dados em um único lugar pode facilitar consideravelmente o processo de desenvolvimento e testes)
+- A sua aplicação possui dados que se atualizam com frequência ou necessitam de manutenção constante? (Concentrar os dados em um único lugar pode facilitar consideravelmente o processo de desenvolvimento e testes)
 
-    Se sua resposta para alguma das perguntas acima for sim, provavelmente o uso de um contexto global pode ser uma boa opção!
+Se sua resposta para alguma das perguntas acima for sim, provavelmente o uso de um contexto global pode ser uma boa opção!
 
 ---
 
