@@ -11,7 +11,7 @@ Pontos importantes:
 
 - Cada personagem deve corresponder a um componente de sua aplicação.
 - Cada personagem deve saber somente aquilo que for necessário. (O Homer não precisa saber que vai cuidar do cachorro, por exemplo).
-- Tente obter o máximo de informações possível pelo contexto da aplicação.(sem utilizar props).
+- Tente obter o máximo de informações possível pelo contexto da aplicação (sem utilizar props).
 
 **Dica:** Os componentes que você deve desenvolver contêm várias similaridades. Tente desenvolver componentes reutilizáveis.
 
@@ -33,7 +33,6 @@ A estrutura das responsabilidades deve ser semelhante a essa:
 Agora que você já entendeu a estrutura da aplicação, vamos aos exercícios:
 
 1 - Crie o contexto de sua aplicação. Ele deve conter dados como:
-- Quais as quatro tarefas que a família deve realizar.
 - Qual a função de cada pessoa.
 - Quem deve ser responsável pela Maggie e pelo Cachorro.
 
@@ -47,7 +46,7 @@ Aqui que você deve declarar as funções que irão dividir, de forma aleatória
 - A Maggie e o cachorro devem apresentar quem está responsável por eles.
 
 3 - Crie a lógica para permitir que as tarefas sejam marcadas como completas:
-- O Componente da família deve apresentar a lista de tarefas que ainda não foram cumpridas.
+- O Componente da família deve apresentar a lista de tarefas que foram cumpridas.
 - Os componentes de Homer, Marge, Bart e Lisa devem possuir um botão que, caso clicado, finaliza a sua tarefa. Após clicado, esse botão não deve mais aparecer no componente.
 - Ao alterar o dia da semana, o status de todas as tarefas devem ser redefinidos.
 
@@ -68,7 +67,7 @@ Bônus
 Utilizando a mesma aplicação dos exercícios anteriores, resolva mais esse exercício:
 
 4- Continuaremos na ideia de definir tarefas; porém, agora serão novas tarefas, onde  todos os personagens (Menos a Maggie e o cachorro) podem acessar e decidir quais irão realizar.
- - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerada uma lista de botões idêntica nos componentes  dos personagens Homer, Marge, Bart e Lisa.
+ - Quando o dia Sábado for escolhido, além das tarefas normais, deve ser gerada uma lista de botões idêntica nos componentes dos personagens Homer, Marge, Bart e Lisa.
  - Essa lista deve conter tarefas relacionadas à limpeza e organização da casa. Fique à vontade para escolher quais serão.
  - Quando algum dos personagens marcar alguma tarefa como feita, ela deve sair dessa lista e ir para uma lista geral que mostra quais tarefas já foram concluídas, assim como quem as concluiu.
  - Ao alterar o dia, os status das tarefas de sábado devem ser reiniciados.
