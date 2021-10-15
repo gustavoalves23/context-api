@@ -42,7 +42,7 @@ A função `createContext` retorna dois componentes essenciais para a utilizaç�
 
 O **Provider** tem a função de prover para nossa aplicação o acesso ao nosso contexto e permitir que ele seja alterado.
 
-O **Consumer** tem a função de pegar **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão), caso ele tenha sido fornecido na declaração do nosso contexto.
+O **Consumer** tem a função de "pegar" **o valor fornecido pelo Provider mais próximo**. Caso ele não encontre nenhum valor passado, utilizará o `defaultValue` (valor padrão), caso ele tenha sido fornecido na declaração do nosso contexto.
 
 Para compreendermos melhor como aplicar esses componentes, vamos criar uma aplicação.
 
