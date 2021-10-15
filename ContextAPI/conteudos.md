@@ -14,7 +14,7 @@ Então... Quando implementar um contexto global? Para responder essa pergunta, p
 
 - Ela possui alguma informação relevante para diversos componentes ou páginas hierarquicamente distantes? (Idioma, Tema Escuro, Informações do usuário,...)
 
-- Ela contém uma grande quantidade de dados a serem passados? (Lembre-se que a cada prop recebida você deve fazer a verificação utilizado propTypes. Fazer a verificação de grandes quantidades de dados em cada componente é um trabalho muito repetitivo.)
+- Ela contém uma grande quantidade de dados a serem passados? (Lembre-se que, para cada prop recebida, você deve fazer a verificação utilizado propTypes. Fazer a verificação de grandes quantidades de dados um cada componente é um trabalho muito repetitivo.)
 
 - A sua aplicação possui dados que se atualizam com frequência ou necessitam de manutenção constante? (Concentrar os dados em um único lugar pode facilitar consideravelmente o processo de desenvolvimento e testes)
 
